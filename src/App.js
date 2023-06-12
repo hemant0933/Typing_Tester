@@ -1,13 +1,18 @@
-import './App.css';
-import TypingBox from './Components/TypingBox';
-import UpperMenu from './Components/UpperMenu';
+import "./App.css";
+import Footer from "./Components/Footer";
+import TypingBox from "./Components/TypingBox";
+import UpperMenu from "./Components/UpperMenu";
 
 function App() {
   return (
-    <div className='App'>
-      <UpperMenu/>
-      <TypingBox/>
+   <ThemeProvider>
+     <div className="App">
+      <header className="title">Typing Master</header>
+      <UpperMenu />
+      <TypingBox />
+      <Footer/>
     </div>
+   </ThemeProvider>
   );
 }
 

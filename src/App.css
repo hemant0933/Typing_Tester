@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,700;1,700&family=Literata:ital,wght@1,900&family=Montserrat:wght@400;500;600;800;900&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .App{
@@ -16,6 +17,11 @@
     /* justify-content: center; */
     flex-direction: column;
 }
+.title{
+    font-size: 30px;
+    /* font-weight: 500; */
+    font-family: 'Literata', serif;
+}
 /* Styling For text box */
 .textBox{
     width: 900px;
@@ -25,6 +31,7 @@
     word-spacing: 0.5rem;
     display: flex;
     flex-wrap: wrap;
+    font-weight: 500;
 }
 .word{
     margin: 5px;
@@ -34,7 +41,7 @@
     opacity: 0;
 }
 .current{
-    border-left: 1px solid black;
+    border-left: 2px solid rgb(40, 39, 39);
     animation: blinking 2s infinite;
     animation-timing-function: ease;
 }
@@ -44,16 +51,16 @@
         border-left-color:  white;
     }
     25%{
-        border-left-color:  black;
+        border-left-color:  rgb(16, 15, 15);
     }
     50%{
-        border-left-color:  white;
+        border-left-color:  rgb(253, 249, 249);
     }
     70%{
-        border-left-color:  black;
+        border-left-color:  rgb(25, 25, 25);
     }
     100%{
-        border-left-color:white;
+        border-left-color:rgb(243, 240, 240);
     }
 }
 .current_right{
@@ -104,4 +111,11 @@
     background-color: grey;
     color: white;
     cursor: pointer;
+}
+.footer{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: auto;
 }
