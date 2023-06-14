@@ -10,43 +10,50 @@ const lightTheme = {
   label: "Light",
   background: "#F9F5F6",
   textColor: "#050517",
-  typeBoxText: "#F2BED1",
-  typeBoxBackground:"null",
+  typeBoxText: "#827397",
+  typeBoxBackground:"#363062",
 };
 const lavenderTheme = {
   label: "Lavender",
   background: "#DBA39A" ,
   textColor: "#AAE3E2",
-  typeBoxText: "#D9ACF5",
-  typeBoxBackground:"null",
+  typeBoxText: "#804674",
+  typeBoxBackground:"#FFF80A",
 };
 const OffWhiteTheme = {
   label: "OffWhite",
-  background: "#FCF6F5",
+  background: "#454545",
   textColor: "#990011",
   typeBoxText: "#FF74B1",
-  typeBoxBackground:"null",
+  typeBoxBackground:"#2E4F4F",
 };
 const VintageTheme = {
   label: "Vintage",
-  background: "#FAF0E4",
+  background: "#1687A7",
   textColor: "#9BCDD2",
   typeBoxText: "#FF8551",
-  typeBoxBackground:"null",
+  typeBoxBackground:"#9BCDD2",
 };
 const GradientTheme = {
   label: "Gradient",
   background: "#2D033B",
   textColor: "#810CA8",
   typeBoxText: "#C147E9",
-  typeBoxBackground:"white",
+  typeBoxBackground:"#000000",
 };
 const ChirstmasTheme = {
   label: "Chirstmas",
-  background: "#91BD3A",
-  textColor: "#B31312",
-  typeBoxText: "#EA906C",
-  typeBoxBackground:"white",
+  background: "#2B3467",
+  textColor: "#BAD7E92",
+  typeBoxText: "#BAD7E9",
+  typeBoxBackground:"#393B44",
+};
+const MyTheme = {
+  label: "MyTheme",
+  background: "#F99417",
+  textColor: "#D9ACF5",
+  typeBoxText: "#5D3891",
+  typeBoxBackground:"#393B44",
 };
 
 export const themeOptions = [
@@ -57,4 +64,5 @@ export const themeOptions = [
   {label:"Vinatge",value:VintageTheme},
   {label:"Gradient",value:GradientTheme},
   {label:"Chirstmas",value:ChirstmasTheme},
+  {label:"MyTheme",value:MyTheme},
 ];

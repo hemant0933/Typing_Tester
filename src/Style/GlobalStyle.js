@@ -2,36 +2,52 @@ import {createGlobalStyle} from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
-*{
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
 body{
     background: ${({theme})=>(theme.background)};
     color: ${({theme})=>theme.textColor};
     margin:0;
     padding:0;
-    transition:all 0.25s linear;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .App{
     width: 100%;
     height: 100vh;
-    padding: 20px 30px;
     position: relative;
     display: flex;
     align-items: center;
-    gap: 20px;
     flex-direction: column;
 }
-.title{
-    font-size: 30px;
-    font-family: 'Literata', serif;
+.header{
+    width:1000px;
+    display:flex;
+    justify-content:space-between;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:40px;
+}
+.logo{
+    display:flex;
+    align-item:center;
+}
+.modalDiv{
+    background: rgba(255,255,255,0.45);
+-webkit-backdrop-filter: blur(7px);
+backdrop-filter: blur(7px);
+border: 1px solid rgba(255,255,255,0.225);
 }
 /* Styling For text box */
+.textWrapper{
+    width:800px;
+    display:flex;
+    justify-content:center;
+    align-item:center;
+    flex-direction:column;
+    margin-top:51px;
+}
 .textBox{
-    width: 900px;
+    width: 800px;
 }
 .words{
     font-size: 1.8rem;
@@ -43,7 +59,7 @@ body{
     background: ${({theme})=>theme.typeBoxBackground};
     padding: 1rem 2rem;
     border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .word{
     margin: 5px;
@@ -108,11 +124,10 @@ body{
 .upper_menu{
     display: flex;
     justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
+    width: 800px;
     font-size: 1.35rem;
     padding: 0.5rem;
+    color:${({theme})=>theme.typeBoxText};
 }
 .modes{
     display: flex;
@@ -136,6 +151,32 @@ body{
     height:'3rem';
 }
 
-
-
+.stats_box{
+    display:flex;
+    width:1000px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+}
+.left_stats{
+    display:flex;
+    align-item:center;
+    flex-direction:column;
+    gap:10px;
+    width:30%;
+    padding:30px;
+}
+.right_stats{
+    width:70%;
+}
+.title{
+    font-size:30px;
+    color:${({theme})=>theme.typeBoxText};
+    border-bottom:1px solid white;
+    padding-bottom:2px;
+}
+.subtitle{
+    font-size:18px;
+    color:${({theme})=>theme.typeBoxText};
+}
 `

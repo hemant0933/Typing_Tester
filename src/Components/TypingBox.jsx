@@ -3,6 +3,9 @@ import { generate } from "random-words";
 
 import UpperMenu from "./UpperMenu";
 import { useTestMode } from "../Context/TestModeContext";
+import Stats from "./Stats";
+import { v4 as uuidv4 } from 'uuid';
+
 // var randomWords = require('random-words');
 const TypingBox = () => {
   const inputRef = useRef(null);
@@ -12,7 +15,7 @@ const TypingBox = () => {
   const [testStart, setTestStart] = useState(false);
   const [testEnd, setTestEnd] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
-
+  const [graphData,setGraphData] = useState([]);
   const [currWordIndex, setcurrWordIndex] = useState(0);
   const [currCharIndex, setcurrCharIndex] = useState(0);
   const [correctChars, setCorrectChars] = useState(0);
@@ -37,6 +40,20 @@ const TypingBox = () => {
     setIntervalId(intervalId);
     function timer() {
       setCountDown((latestCountDown) => {
+
+        setCorrectChars((correctChars)=>{
+          
+          setGraphData((graphData)=>{
+           
+            return [...graphData, [
+            testTime - latestCountDown + 1,
+            (correctChars/5)/((testTime - latestCountDown + 1)/60)
+            ]]
+
+          })
+
+          return correctChars;
+        })
         if (latestCountDown === 1) {
           setTestEnd(true);
           clearInterval(intervalId);
@@ -137,7 +154,7 @@ const TypingBox = () => {
   };
   //here when ever our page gets render the input become in focus mode
   //means when the cursor start blinking
-
+  
   useEffect(() => {
     focusInput();
     wordsSpanRef[0].current.childNodes[0].className = "current";
@@ -148,10 +165,16 @@ const TypingBox = () => {
   }, [testTime]);
 
   return (
-    <div>
+    <div className="textWrapper">
       <UpperMenu countDown={countDown} />
       {testEnd ? (
-        <h1>Test Over</h1>
+       <Stats 
+       wpm={calculateWPM()} 
+       accuracy={calculateAcc()}
+       correctChars={correctChars}
+       incorrectChars={incorrectChars}
+       missedChars={missedChars}
+       graphData={graphData}  />
       ) : (
         <div className="textBox" onClick={focusInput}>
           <div className="words">
