@@ -1,30 +1,25 @@
-
-import Footer from "./Components/Footer";
-import TypingBox from "./Components/TypingBox";
 import { GlobalStyles } from "./Style/GlobalStyle";
-import {ThemeProvider} from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { useTheme } from "./Context/ThemeContext";
-import Header from "./Components/Header";
-import { ToastContainer, toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import UserPage from "./Pages/UserPage";
 // import { themeOptions } from "./Utils/themeOptions";
 
-
 function App() {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   return (
-
-   <ThemeProvider theme={theme}>
-      <ToastContainer/>
-      <div className="App">
-        <GlobalStyles/>
-      <Header/>
-      <TypingBox />
-      <Footer/>
-    </div>
-   </ThemeProvider>
-
+    <ThemeProvider theme={theme}>
+      <ToastContainer />
+      <GlobalStyles />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/user" element={<UserPage />} />
+      </Routes>
+    </ThemeProvider>
   );
 }
 

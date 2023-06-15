@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Graph from "./Graph";
 import { auth, db } from "../firebaseConfig";
 import { toast } from "react-toastify";
-
+import { collection, addDoc } from "firebase/firestore";
 
 const Stats = ({
   wpm,
@@ -22,7 +22,7 @@ const Stats = ({
     }
   });
 
-  const pushDataToDB = () => {
+  const pushDataToDB = async () => {
     if (isNaN(accuracy)) {
       toast.error("Invalid Test!", {
         position: "top-right",
@@ -37,41 +37,42 @@ const Stats = ({
       return;
     }
     const { uid } = auth.currentUser;
-    const resultRef = db.collection("Results");
+    // const resultRef = db.collection("Results");
+    //use await to wait for the promise to resolve
 
-    resultRef
-      .add({
+    try {
+      const resultRef = await addDoc(collection(db, "Results"), {
         wpm: wpm,
         accuracy: accuracy,
         timeStamp: new Date(),
         characters: `${correctChars}/${incorrectChars}/${missedChars} `,
         userId: uid,
-      })
-      .then((res) => {
-        toast.success("Data saved to Database!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      })
-      .catch((err) => {
-        toast.error("not able to save data", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
       });
+      toast.success("Data saved to Database!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      console.log(resultRef);
+    } catch (e) {
+      toast.error("not able to save data", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
+
   useEffect(() => {
     if (auth.currentUser) {
       pushDataToDB();

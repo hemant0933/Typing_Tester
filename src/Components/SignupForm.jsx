@@ -12,7 +12,7 @@ const SignupForm = () => {
     const [confirmPassword,setConfirmPassword] = useState('');
     const {theme} = useTheme();
 
-    const handleSubmit = () => {
+    const handleSubmit = ({handleClose}) => {
         if(!email || !password || !confirmPassword){
             toast.warn('😩 Please fill the details', {
                 position: "top-right",
@@ -52,6 +52,7 @@ const SignupForm = () => {
                 progress: undefined,
                 theme: "dark",
                 });
+                handleClose();
         }).catch((err)=>{
         //    console.log(err);
            toast.error(errorMapping[err.code] || 'some error occured', {
