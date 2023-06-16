@@ -23,8 +23,8 @@ const lavenderTheme = {
 const OffWhiteTheme = {
   label: "OffWhite",
   background: "#454545",
-  textColor: "#990011",
-  typeBoxText: "#FF74B1",
+  textColor: "#00DFA2",
+  typeBoxText: "white",
   typeBoxBackground:"#2E4F4F",
 };
 const VintageTheme = {
@@ -32,7 +32,7 @@ const VintageTheme = {
   background: "#1687A7",
   textColor: "#9BCDD2",
   typeBoxText: "#FF8551",
-  typeBoxBackground:"#9BCDD2",
+  typeBoxBackground:"gray",
 };
 const GradientTheme = {
   label: "Gradient",
@@ -51,7 +51,7 @@ const ChirstmasTheme = {
 const MyTheme = {
   label: "MyTheme",
   background: "#F99417",
-  textColor: "#D9ACF5",
+  textColor: "#A239EA",
   typeBoxText: "#5D3891",
   typeBoxBackground:"#393B44",
 };

@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import { useTheme } from '../Context/ThemeContext';
 import GoogleButton from 'react-google-button'
-import { signInWithPopup,GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import { toast } from 'react-toastify';
 import errorMapping from '../Utils/errorMapping';
@@ -38,8 +38,9 @@ const Account = () => {
     }
     const googleProvider = new GoogleAuthProvider();
 
-    const handleSignInWithGoogle = () => {
-      signInWithPopup(auth,googleProvider).then((res)=>{
+    const handleSignInWithGoogle = async () => {
+      try{
+        const res = await signInWithPopup(auth,googleProvider)
         toast.success('Google login Successful!', {
           position: "top-right",
           autoClose: 5000,
@@ -50,8 +51,10 @@ const Account = () => {
           progress: undefined,
           theme: "dark",
           });
-          handleClose()
-      }).catch((err)=>{
+          handleClose();
+      
+      } catch(err){
+          console.error(err.code, err.message,err.credentail,err.email);
           toast.error(errorMapping[err.code] || 'not able to login with google', {
             position: "top-right",
             autoClose: 5000,
@@ -61,13 +64,12 @@ const Account = () => {
             draggable: true,
             progress: undefined,
             theme: "dark",
-            });
-        })
+          });
+        }
 
     }
-
     const handleLogout = () => {
-      auth.signOut().then((res) => {
+      auth.signOut().then((res) => {       
         toast.success('Logged out!', {
           position: "top-right",
           autoClose: 5000,

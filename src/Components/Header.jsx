@@ -1,10 +1,18 @@
 import React from "react";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import Account from "./Account";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+
+  const navigate = useNavigate();
+
+  const handleMoveToHome = () => {
+    return navigate('/');
+  }
+
   return (
     <div className="header">
-      <div className="logo">
+      <div className="logo" style={{cursor:'pointer'}} onClick={handleMoveToHome}>
         <div>
           <KeyboardIcon style={{ fontSize: "2.8rem" }} />
         </div>
