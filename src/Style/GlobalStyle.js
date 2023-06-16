@@ -1,10 +1,10 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
 body{
-    background: ${({theme})=>(theme.background)};
-    color: ${({theme})=>theme.textColor};
+    background: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.textColor};
     margin:0;
     padding:0;
     box-sizing: border-box;
@@ -55,8 +55,8 @@ border: 1px solid rgba(255,255,255,0.225);
     display: flex;
     flex-wrap: wrap;
     font-weight: 500;
-    color:${({theme})=>theme.typeBoxText};
-    background: ${({theme})=>theme.typeBoxBackground};
+    color:${({ theme }) => theme.typeBoxText};
+    background: ${({ theme }) => theme.typeBoxBackground};
     padding: 1rem 2rem;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -127,7 +127,7 @@ border: 1px solid rgba(255,255,255,0.225);
     width: 800px;
     font-size: 1.35rem;
     padding: 0.5rem;
-    color:${({theme})=>theme.typeBoxText};
+    color:${({ theme }) => theme.typeBoxText};
 }
 .modes{
     display: flex;
@@ -140,12 +140,26 @@ border: 1px solid rgba(255,255,255,0.225);
     cursor: pointer;
 }
 .footer{
+  margin-top:50px;
     width: 1000px;
     display: flex;
     justify-content: space-between;
     margin-right: auto;
     margin-left: auto;
 }
+.left_footer{
+  display: flex;
+  gap:1rem;
+}
+.left_footer > span{
+  cursor: pointer;
+  
+}
+.left_footer > span :hover{
+  transform: scale(1.1);
+}
+
+
 .themeButton{
     width: '250px';
     height:'3rem';
@@ -171,13 +185,13 @@ border: 1px solid rgba(255,255,255,0.225);
 }
 .title{
     font-size:30px;
-    color:${({theme})=>theme.typeBoxText};
+    color:${({ theme }) => theme.typeBoxText};
     border-bottom:1px solid white;
     padding-bottom:2px;
 }
 .subtitle{
     font-size:18px;
-    color:${({theme})=>theme.typeBoxText};
+    color:${({ theme }) => theme.typeBoxText};
 }
 .user_profile{
     width:1000px;
@@ -190,7 +204,7 @@ border: 1px solid rgba(255,255,255,0.225);
     flex-direction column;
     gap:10px;
     height:15rem;
-    background:${({theme})=>theme.typeBoxBackground};
+    background:${({ theme }) => theme.typeBoxBackground};
     border-radius:20px;
 }
 .table, .graph-user-page{
@@ -478,4 +492,5 @@ border: 1px solid rgba(255,255,255,0.225);
       transform: rotate(-1turn);
     }
   }
-`
+
+`;

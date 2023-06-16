@@ -3,7 +3,7 @@ import { collection, query, where, orderBy, getDocs } from "firebase/firestore";
 import { auth, db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { CircularProgress } from "@mui/material";
+
 import TableUserData from "../Components/TableUserData";
 import Graph from "../Components/Graph";
 import UserInfo from "../Components/UserInfo";

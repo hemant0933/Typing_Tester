@@ -2,6 +2,8 @@ import React from "react";
 import Select from "react-select";
 import { themeOptions } from "../Utils/themeOptions";
 import { useTheme } from "../Context/ThemeContext";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Footer = () => {
  
@@ -12,9 +14,19 @@ const Footer = () => {
     localStorage.setItem("theme",JSON.stringify(e.value));
   };
 
+  const handleClickToLinkedin = () => {
+    window.location.href = "https://www.linkedin.com/in/hemant-kumar-0a9b69bb/";
+  }
+  const handleClickToGithub = () => {
+    window.location.href = "https://github.com/hemant0933";
+  }
+
   return (
     <div className="footer">
-      <div className="left_footer">Links</div>
+      <div className="left_footer">
+        <span><LinkedInIcon style={{fontSize:'2rem'}} onClick={handleClickToLinkedin}/></span>
+        <span><GitHubIcon style={{fontSize:'2rem'}} onClick={handleClickToGithub}/></span>
+      </div>
       <div className="themeButton">
         <Select
          styles={{

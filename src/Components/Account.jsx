@@ -4,8 +4,8 @@ import {Box, AppBar, Modal, Tab, Tabs } from '@mui/material';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import { useTheme } from '../Context/ThemeContext';
-import GoogleButton from 'react-google-button'
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import GoogleButton from 'react-google-button';
+import {signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import { toast } from 'react-toastify';
 import errorMapping from '../Utils/errorMapping';
@@ -28,7 +28,6 @@ const Account = () => {
       else{
         setOpen(true);
       }  
-     
     }
     const handleClose = () => {
         setOpen(false);
@@ -36,11 +35,12 @@ const Account = () => {
     const handleValueChange = (e,v) => {
         setvalue(v);
     }
-    const googleProvider = new GoogleAuthProvider();
+ 
 
     const handleSignInWithGoogle = async () => {
       try{
-        const res = await signInWithPopup(auth,googleProvider)
+        const googleProvider = new GoogleAuthProvider();
+        await signInWithPopup(auth,googleProvider)
         toast.success('Google login Successful!', {
           position: "top-right",
           autoClose: 5000,
@@ -51,10 +51,9 @@ const Account = () => {
           progress: undefined,
           theme: "dark",
           });
-          handleClose();
-      
+          // handleClose();
       } catch(err){
-          console.error(err.code, err.message,err.credentail,err.email);
+          // console.error(err.code, err.message,err.credentail,err.email);
           toast.error(errorMapping[err.code] || 'not able to login with google', {
             position: "top-right",
             autoClose: 5000,
@@ -96,10 +95,10 @@ const Account = () => {
     
   return (
     <div>
-        <AccountBoxTwoToneIcon style={{ fontSize: "1.5rem",cursor:'pointer' }} onClick={OpenModal} />
+        <AccountBoxTwoToneIcon style={{ fontSize: "2rem",cursor:'pointer',marginLeft:'2rem'}} onClick={OpenModal} />
       {
         user &&
-        <LogoutTwoToneIcon style={{ fontSize: "1.5rem",cursor:'pointer' }} onClick={handleLogout}/>   
+        <LogoutTwoToneIcon style={{ fontSize: "2rem",cursor:'pointer' }} onClick={handleLogout}/>   
       }
 
       <Modal

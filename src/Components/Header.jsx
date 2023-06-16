@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="logo" style={{cursor:'pointer'}} onClick={handleMoveToHome}>
+      <div className="logo" style={{cursor:'pointer',fontSize:'2rem'}} onClick={handleMoveToHome}>
         <div>
           <KeyboardIcon style={{ fontSize: "2.8rem" }} />
         </div>

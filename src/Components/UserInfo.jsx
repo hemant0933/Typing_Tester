@@ -6,7 +6,7 @@ import { auth } from "../firebaseConfig";
 const UserInfo = ({data}) => {
 
     const [user] = useAuthState(auth);
-    console.log(user)
+    // console.log(user)
 
   return (
     <div className="user_profile">
