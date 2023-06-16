@@ -27,15 +27,16 @@ const Footer = () => {
         <span><LinkedInIcon style={{fontSize:'2rem'}} onClick={handleClickToLinkedin}/></span>
         <span><GitHubIcon style={{fontSize:'2rem'}} onClick={handleClickToGithub}/></span>
       </div>
+
       <div className="themeButton">
         <Select
          styles={{
           control:styles => ({
-            ...styles, backgroundColor: theme.background
+            ...styles, backgroundColor: theme.background,width:150
 
           }),
           menu: styles => ({
-            ...styles,backgroundColor: theme.background
+            ...styles,backgroundColor: theme.background,color: theme.typeBoxText
           }),
           option: (styles,{isFocused}) => {
             return {
